@@ -74,10 +74,11 @@ function App() {
     try {
       const response = await fetch(`${API_URL}/api/products`, {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+         headers: {
+    "Content-Type": "application/json",
+    },
+      body: JSON.stringify({ username, password }),
+    });
 
       const data = await response.json();
 
